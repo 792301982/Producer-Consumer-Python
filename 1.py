@@ -39,7 +39,6 @@ zuse_list = list()
 wait_list = list()
 
 
-
 def qingkong(x):
     for i in x:
         i.set('')
@@ -51,36 +50,37 @@ def charu(x, l):
 
 
 def check_zuse():
-    if '生产者1' in zuse_list or len(zuse_list)>=3:
+    if '生产者1' in zuse_list or len(zuse_list) >= 3:
         Button(root, text='生产者1', width=10, height=1,
                state=DISABLED).grid(row=4, column=1)
-    if '生产者2' in zuse_list or len(zuse_list)>=3:
+    if '生产者2' in zuse_list or len(zuse_list) >= 3:
         Button(root, text='生产者2', width=10, height=1,
                state=DISABLED).grid(row=4, column=2)
-    if '生产者3' in zuse_list or len(zuse_list)>=3:
+    if '生产者3' in zuse_list or len(zuse_list) >= 3:
         Button(root, text='生产者3', width=10, height=1,
                state=DISABLED).grid(row=4, column=3)
-    if '生产者4' in zuse_list or len(zuse_list)>=3:
+    if '生产者4' in zuse_list or len(zuse_list) >= 3:
         Button(root, text='生产者4', width=10, height=1,
                state=DISABLED).grid(row=4, column=4)
 
 
 def check_wait():
-    if '消费者1' in wait_list or len(wait_list)>=3:
+    if '消费者1' in wait_list or len(wait_list) >= 3:
         Button(root, text='消费者1', width=10, height=1,
                state=DISABLED).grid(row=5, column=1)
-    if '消费者2' in wait_list or len(wait_list)>=3:
+    if '消费者2' in wait_list or len(wait_list) >= 3:
         Button(root, text='消费者2', width=10, height=1,
                state=DISABLED).grid(row=5, column=2)
-    if '消费者3' in wait_list or len(wait_list)>=3:
+    if '消费者3' in wait_list or len(wait_list) >= 3:
         Button(root, text='消费者3', width=10, height=1,
                state=DISABLED).grid(row=5, column=3)
-    if '消费者4' in wait_list or len(wait_list)>=3:
+    if '消费者4' in wait_list or len(wait_list) >= 3:
         Button(root, text='消费者4', width=10, height=1,
                state=DISABLED).grid(row=5, column=4)
 
+
 def refresh_button():
-    #刷新按钮
+    # 刷新按钮
     Button(root, text='生产者1', width=10, height=1,
            command=lambda: shengchan(1)).grid(row=4, column=1)
     Button(root, text='生产者2', width=10, height=1,
@@ -98,11 +98,12 @@ def refresh_button():
     Button(root, text='消费者4', width=10, height=1,
            command=lambda: xiaofei(4)).grid(row=5, column=4)
 
+
 def shengchan(number):
     global huanchong_list, wait_list, zuse_list
-    
-    if(len(wait_list) !=0):
-        wait_list=wait_list[1:]
+
+    if(len(wait_list) != 0):
+        wait_list = wait_list[1:]
     else:
         if(len(huanchong_list) < 2):
             huanchong_list.append('生产者%s' % number)
@@ -151,7 +152,7 @@ def xiaofei(number):
     check_wait()
 
 
-#布置消费者按钮
+# 布置消费者按钮
 Button(root, text='消费者1', width=10, height=1,
        command=lambda: xiaofei(1)).grid(row=5, column=1)
 Button(root, text='消费者2', width=10, height=1,
